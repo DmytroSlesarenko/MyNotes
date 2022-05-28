@@ -9,6 +9,7 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
 
     @Column(length = 1000)
@@ -57,9 +58,9 @@ public class Note {
     @Override
     public String toString() {
         return "Note{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                "id = " + id +
+                ", title = '" + title + '\'' +
+                ", description = '" + description + '\'' +
                 '}';
     }
 }

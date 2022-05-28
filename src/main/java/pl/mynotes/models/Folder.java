@@ -10,6 +10,7 @@ public class Folder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     @OneToMany(mappedBy = "folder", cascade = CascadeType.ALL)
@@ -46,8 +47,8 @@ public class Folder {
     @Override
     public String toString() {
         return "Folder{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id = " + id +
+                ", name = '" + name + '\'' +
                 '}';
     }
 }
