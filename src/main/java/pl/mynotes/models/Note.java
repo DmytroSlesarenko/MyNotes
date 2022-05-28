@@ -1,6 +1,7 @@
 package pl.mynotes.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "notes")
@@ -15,12 +16,13 @@ public class Note {
     @Column(length = 1000)
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "folder_id")
     private Folder folder;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
-
 
     public Note(Long id, String title, String description) {
         this.id = id;

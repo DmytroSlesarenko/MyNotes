@@ -13,10 +13,12 @@ public class ProductsList {
     @Column(length = 10000)
     private String productsList;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "folder_id")
     private Folder folder;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public ProductsList(Long id, String productsList) {

@@ -15,19 +15,19 @@ public class User {
 
     private String lastName;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
 
-    @OneToMany
-    private List<Note> note;
+    @ManyToMany
+    private List<Note> notes;
 
-    @OneToMany
-    private List<ProductsList> productsList;
+    @ManyToMany
+    private List<ProductsList> productsLists;
 
-    @OneToMany(mappedBy = "user")
-    private List<Folder> folders;
-
+    @ManyToMany
+    private List<Friends> friendsList;
 
     public User(Long id, String firstName, String lastName, String email, String password) {
         this.id = id;
@@ -79,6 +79,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     @Override
     public String toString() {

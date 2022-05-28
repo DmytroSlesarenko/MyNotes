@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "folders")
-public class Folder {
+@Table(name = "friends")
+public class Friends {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,16 +13,15 @@ public class Folder {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @ManyToMany
+    private List<Note> notes;
 
-    public Folder(Long id, String name) {
+    public Friends(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Folder() {
+    public Friends() {
     }
 
     public Long getId() {
@@ -43,7 +42,7 @@ public class Folder {
 
     @Override
     public String toString() {
-        return "Folder{" +
+        return "Group{" +
                 "id = " + id +
                 ", name = '" + name + '\'' +
                 '}';
