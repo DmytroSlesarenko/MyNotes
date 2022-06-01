@@ -1,6 +1,9 @@
 package pl.mynotes.models;
 
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products_list")
@@ -9,6 +12,8 @@ public class ProductsList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String title;
 
     @Column(length = 10000)
     private String productsList;
@@ -35,6 +40,14 @@ public class ProductsList {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getProductsList() {
