@@ -57,9 +57,17 @@ img {
     transition: 0.3s;
 }
 
-.sidebar ul {
+.folders-menu {
+    max-height: 220px;
+    overflow: scroll;
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.folders-menu::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar li{

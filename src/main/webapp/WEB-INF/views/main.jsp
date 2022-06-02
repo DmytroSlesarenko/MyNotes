@@ -21,7 +21,7 @@
                         <div class="notes__header">
                             <div class="notes__title">${note.title}</div>
                             <div class="note__details">
-                                <a href="/notes/details"><img src="<c:url value="/theme/img/more-white.png"/>" alt="add note" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
+                                <a href="/notes/details/${note.id}"><img src="<c:url value="/theme/img/more-white.png"/>" alt="add note" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
                             </div>
                         </div>
 

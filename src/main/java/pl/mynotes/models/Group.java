@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "friends")
-public class Friends {
+@Table(name = "myGroups")
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +16,12 @@ public class Friends {
     @ManyToMany
     private List<Note> notes;
 
-    public Friends(Long id, String name) {
+    public Group(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Friends() {
+    public Group() {
     }
 
     public Long getId() {

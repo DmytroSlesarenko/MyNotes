@@ -6,7 +6,8 @@
     <div class="add__note__container">
         <div class="container__note">
             <div class="add__note__body">
-                <form:form method="post" action="/notes/add" modelAttribute="note">
+                <form:form method="post" action="/notes/edit" modelAttribute="note">
+                    <form:input cssClass="note__id" path="id"/>
                     <form:input path="title"/>
                     <form:textarea path="description" id="note__description"/>
                     <form:select path="folder">
@@ -14,7 +15,7 @@
                         <form:options items="${folders}" itemLabel="name"/>
                     </form:select>
                     <div class="buttons">
-                        <a href="/notes">
+                        <a href="/notes/details/${note.id}">
                             <img src="<c:url value="/theme/img/cancel.png"/>" alt="submit" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">
                         </a>
                         <button type="submit" class="submit__button">

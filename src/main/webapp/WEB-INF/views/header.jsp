@@ -13,8 +13,8 @@
     <title>MyNotes</title>
     <link rel="stylesheet" href="<c:url value="/theme/css/main.css"/>">
     <link rel="stylesheet" href="<c:url value="/theme/css/notes.css"/>">
-    <link rel="stylesheet" href="<c:url value="/theme/css/addNote.css"/>">
-    <link rel="stylesheet" href="<c:url value="/theme/css/addFolder.css"/>">
+    <link rel="stylesheet" href="<c:url value="/theme/css/add.css"/>">
+    <link rel="stylesheet" href="<c:url value="/theme/css/details.css"/>">
 </head>
 <body>
 
@@ -30,29 +30,28 @@
         <hr>
         <a href="/notes"><img src="<c:url value="/theme/img/notes.png"/>" alt="notes"><span class="menu_text">All notes</span></a>
         <hr>
+        <a href="/folder/all">
+            <img src="<c:url value="/theme/img/folder.png"/>" alt="folder">
+            <span class="menu_text">All folders</span>
+        </a>
+        ${folders.size() > 0 ? "<hr>" : ""}
         <ul class="folders-menu">
-            <li>
-                <a class="new_folder" href="/folder/all"><img src="<c:url value="/theme/img/folder.png"/>" alt="folder">
-                    <span class="menu_text">All folders</span>
-                </a>
-            </li>
-            <span class="menu_text limit">3 last folders</span>
             <%--@elvariable id="folders" type="java.util.List"--%>
             <c:forEach items="${folders}" var="folder">
                 <li>
-                    <img src="<c:url value="/theme/img/folder.png"/>" alt="folder">
-                    <span class="menu_text"><c:out value="${folder.name}"/></span>
+                    <a class="new_folder" href="/folder/${folder.id}">
+                        <img src="<c:url value="/theme/img/folder.png"/>" alt="folder">
+                        <span class="menu_text"><c:out value="${folder.name}"/></span>
+                    </a>
                 </li>
             </c:forEach>
-
-            <li>
-                <a class="new_folder" href="/folder/add"><img src="<c:url value="/theme/img/add-folder.png"/>" alt="folder">
-                    <span class="menu_text">New folder</span>
-                </a>
-            </li>
         </ul>
         <hr>
-        <a href="/friends/all"><img src="<c:url value="/theme/img/group.png"/>" alt="friends"><span class="menu_text">Friends</span></a>
+        <a href="/folder/add"><img src="<c:url value="/theme/img/add-folder.png"/>" alt="folder">
+            <span class="menu_text">New folder</span>
+        </a>
+        <hr>
+        <a href="/friends/all"><img src="<c:url value="/theme/img/group.png"/>" alt="friends"><span class="menu_text">Group</span></a>
     </div>
 
     <div class="logout">

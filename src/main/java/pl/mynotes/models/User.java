@@ -27,7 +27,7 @@ public class User {
     private List<ProductsList> productsLists;
 
     @ManyToMany
-    private List<Friends> friendsList;
+    private List<Group> groupList;
 
     public User(Long id, String firstName, String lastName, String email, String password) {
         this.id = id;

@@ -17,7 +17,7 @@ public class Note {
     @Column(length = 1000)
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "folder_id")
     private Folder folder;
 

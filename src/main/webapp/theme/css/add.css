@@ -38,7 +38,7 @@ input {
     font-size: 16px;
     padding: 1px 2px 1px 15px;
     display: block;
-    height: 50px;
+    height: 45px;
     margin: 10px 0 10px 0;
     border-radius: 15px;
     border-color: black;
@@ -94,4 +94,15 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.container__folder {
+    width: 575px;
+    height: 165px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.note__id {
+    display: none;
 }

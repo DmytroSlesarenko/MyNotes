@@ -4,17 +4,13 @@
 
 <div id="main" class="main">
     <div class="add__note__container">
-        <div class="container__note">
+        <div class="container__folder">
             <div class="add__note__body">
-                <form:form method="post" action="/notes/add" modelAttribute="note">
-                    <form:input path="title"/>
-                    <form:textarea path="description" id="note__description"/>
-                    <form:select path="folder">
-                        <form:option value="" label="Select folder"/>
-                        <form:options items="${folders}" itemLabel="name"/>
-                    </form:select>
+                <form:form method="post" action="/folder/edit" modelAttribute="folder">
+                    <form:input cssClass="note__id" path="id"/>
+                    <form:input path="name"/>
                     <div class="buttons">
-                        <a href="/notes">
+                        <a href="/folder/${folder.id}">
                             <img src="<c:url value="/theme/img/cancel.png"/>" alt="submit" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">
                         </a>
                         <button type="submit" class="submit__button">
