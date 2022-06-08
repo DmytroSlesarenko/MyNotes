@@ -7,12 +7,32 @@
       <div class="container__note__details">
         <div class="details__note__body">
             <div class="note__body">
-                <div class="title__body">
-                  <p>${note.title}</p>
-                </div>
-                <div class="description">
-                    <p>${note.description}</p>
-                </div>
+
+                <c:choose>
+                    <c:when test="${note.type == 'note'}">
+                        <div class="title__body">
+                            <p>${note.title}</p>
+                        </div>
+                        <div class="description">
+                            <p>${note.description}</p>
+                        </div>
+                    </c:when>
+
+                    <c:otherwise>
+                        <div class="title__body">
+                            <p>${note.title}</p>
+                        </div>
+                        <div class="description">
+                            <c:forEach items="${note.description.split('; ')}" var="item">
+                            <div class="pointView">
+                                <img class="uncheck">
+                                <p>${item}</p>
+                            </div>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
+
+
             </div>
             <div class="buttons">
               <a href="/notes">
@@ -21,9 +41,18 @@
               <a href="/notes/share/${note.id}">
                 <img src="<c:url value="/theme/img/share.png"/>" alt="share" onmouseover="this.src = '/theme/img/share-click.png'" onmouseout="this.src = '/theme/img/share.png'">
               </a>
-              <a href="/notes/edit/${note.id}">
-                <img src="<c:url value="/theme/img/edit-blue.png"/>" alt="edit" onmouseover="this.src = '/theme/img/edit-click.png'" onmouseout="this.src = '/theme/img/edit-blue.png'">
-              </a>
+                <c:choose>
+                    <c:when test="${note.type == 'note'}">
+                        <a href="/notes/edit/${note.id}">
+                            <img src="<c:url value="/theme/img/edit-blue.png"/>" alt="edit" onmouseover="this.src = '/theme/img/edit-click.png'" onmouseout="this.src = '/theme/img/edit-blue.png'">
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="/list/edit/${note.id}">
+                            <img src="<c:url value="/theme/img/edit-blue.png"/>" alt="edit" onmouseover="this.src = '/theme/img/edit-click.png'" onmouseout="this.src = '/theme/img/edit-blue.png'">
+                        </a>
+                    </c:otherwise>
+                </c:choose>
               <a href="/notes/delete/${note.id}">
                 <img src="<c:url value="/theme/img/delete-blue.png"/>" alt="delete" onmouseover="this.src = '/theme/img/delete-click.png'" onmouseout="this.src = '/theme/img/delete-blue.png'">
               </a>

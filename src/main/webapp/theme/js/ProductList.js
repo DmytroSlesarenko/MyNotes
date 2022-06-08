@@ -85,7 +85,9 @@ function newElement() {
     if (inputValue === '') {
         alert("Complete point!")
     } else {
-        box.appendChild(input)
+        const addInput = document.getElementById("myInputs");
+        addInput.value = "";
+        box.appendChild(input);
         document.getElementById("checklist").appendChild(box);
     }
     document.getElementById("checklist").value = "";

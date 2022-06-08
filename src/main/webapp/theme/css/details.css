@@ -10,9 +10,9 @@
 }
 
 .container__note__details {
-    padding: 0 15px 10px 15px;
+    padding: 0 15px 0 15px;
     display: flex;
-    max-width: 575px;
+    max-width: 570px;
     background-color: white;
     align-items: center;
     justify-content: space-around;
@@ -57,7 +57,7 @@
 .buttons a {
     display: flex;
     width: 30px;
-    height: 50px;
+    height: 40px;
     justify-content: center;
     align-items: center;
 }
@@ -74,7 +74,7 @@ button {
 }
 
 .buttons {
-    padding: 0 10px 0 10px;
+    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

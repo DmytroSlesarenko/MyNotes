@@ -24,7 +24,7 @@
                                 <div class="notes__header">
                                     <div class="notes__title">${note.title}</div>
                                     <div class="note__details">
-                                        <a href="/notes/details/${note.id}"><img src="<c:url value="/theme/img/more-white.png"/>" alt="details" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
+                                        <a href="/notes/details/${note.id}?type=note"><img src="<c:url value="/theme/img/more-white.png"/>" alt="details" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
                                     </div>
                                 </div>
 
@@ -41,12 +41,12 @@
                                 <div class="notes__header">
                                     <div class="notes__title">${note.title}</div>
                                     <div class="note__details">
-                                        <a href="/notes/details/${note.id}"><img src="<c:url value="/theme/img/more-white.png"/>" alt="details" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
+                                        <a href="/notes/details/${note.id}?type=list"><img src="<c:url value="/theme/img/more-white.png"/>" alt="details" onmouseover="this.src = '/theme/img/more.png'" onmouseout="this.src = '/theme/img/more-white.png'"></a>
                                     </div>
                                 </div>
 
                                 <div class="notes__content">
-                                        <c:forEach items="${note.description.split(' ')}" var="item">
+                                        <c:forEach items="${note.description.split('; ')}" var="item">
                                             <div class="pointView">
                                                 <img class="uncheck">
                                                 <p>${item}</p>

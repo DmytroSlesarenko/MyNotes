@@ -2,10 +2,7 @@ package pl.mynotes.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.mynotes.models.Folder;
 import pl.mynotes.models.Note;
 import pl.mynotes.repositories.FolderRepository;
@@ -37,10 +34,28 @@ public class ListController {
     @PostMapping("/list/add")
     public String saveList(@ModelAttribute("note") Note note, @RequestParam String type, HttpServletRequest request) {
         List<String> list = List.of(request.getParameterValues("lista"));
-        String inputValue = list.stream().collect(Collectors.joining(" "));
+        String inputValue = list.stream().collect(Collectors.joining("; "));
         note.setDescription(inputValue);
         note.setType(type);
         noteRepository.save(note);
         return "redirect:/notes";
+    }
+
+    @GetMapping("/list/edit/{id}")
+    public String editListForm(Model model, @PathVariable Long id) {
+        List<Folder> folders = folderRepository.findAll();
+        model.addAttribute("folders", folders);
+        Note note = noteRepository.findById(id).get();
+        model.addAttribute("note", note);
+        return "editList";
+    }
+
+    @PostMapping("/list/edit")
+    public String editList(Note editedNote, HttpServletRequest request) {
+        List<String> list = List.of(request.getParameterValues("lista"));
+        String inputValue = list.stream().collect(Collectors.joining("; "));
+        editedNote.setDescription(inputValue);
+        noteRepository.save(editedNote);
+        return "redirect:/notes/details/" + editedNote.getId();
     }
 }
