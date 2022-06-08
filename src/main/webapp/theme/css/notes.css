@@ -47,7 +47,6 @@
     flex-direction: column;
     min-width: 200px;
     background-color: white;
-    border-radius: 25px;
 }
 
 .notes__header, .notes__content {
@@ -85,8 +84,6 @@
 
 .notes__content {
     font-size: 14px;
-    padding: 10px;
     overflow: scroll;
     max-height: 230px;
-    border-bottom: 1px solid #3498db;
 }

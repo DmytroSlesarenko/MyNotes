@@ -39,8 +39,9 @@ public class NoteController {
     }
 
     @PostMapping("/notes/add")
-    public String saveNote(@ModelAttribute("note") Note note) {
+    public String saveNote(@ModelAttribute("note") Note note, @RequestParam String type) {
         note.setDescription(note.getDescription().replaceAll("\n", "<br>"));
+        note.setType(type);
         noteRepository.save(note);
         return "redirect:/notes";
     }

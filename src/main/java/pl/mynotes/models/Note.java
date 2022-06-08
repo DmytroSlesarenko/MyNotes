@@ -1,8 +1,6 @@
 package pl.mynotes.models;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "notes")
@@ -17,6 +15,8 @@ public class Note {
     @Column(length = 1000)
     private String description;
 
+    private String type;
+
     @ManyToOne
     @JoinColumn(name = "folder_id")
     private Folder folder;
@@ -25,10 +25,11 @@ public class Note {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Note(Long id, String title, String description, Folder folder, User user) {
+    public Note(Long id, String title, String description, String type, Folder folder, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.type = type;
         this.folder = folder;
         this.user = user;
     }
@@ -58,6 +59,14 @@ public class Note {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Folder getFolder() {

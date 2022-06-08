@@ -24,9 +24,6 @@ public class User {
     private List<Note> notes;
 
     @ManyToMany
-    private List<ProductsList> productsLists;
-
-    @ManyToMany
     private List<Group> groupList;
 
     public User(Long id, String firstName, String lastName, String email, String password) {

@@ -13,7 +13,6 @@
     width: 575px;
     height: 475px;
     background-color: white;
-    border-radius: 30px;
 
 }
 
@@ -40,7 +39,6 @@ input {
     display: block;
     height: 45px;
     margin: 10px 0 10px 0;
-    border-radius: 15px;
     border-color: black;
 }
 
@@ -51,7 +49,6 @@ textarea {
     height: 200px;
     margin: 10px 0 10px 0;
     resize: none;
-    border-radius: 15px;
     border-color: black;
 }
 
@@ -62,7 +59,6 @@ select {
     height: 50px;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    border-radius: 15px;
     border-color: black;
     color: #666666;
 }
@@ -100,9 +96,4 @@ button {
     width: 575px;
     height: 165px;
     background-color: white;
-    border-radius: 30px;
-}
-
-.note__id {
-    display: none;
 }

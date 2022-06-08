@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<c:url value="/theme/css/notes.css"/>">
     <link rel="stylesheet" href="<c:url value="/theme/css/add.css"/>">
     <link rel="stylesheet" href="<c:url value="/theme/css/details.css"/>">
+    <link rel="stylesheet" href="<c:url value="/theme/css/addList.css"/>">
 </head>
 <body>
 

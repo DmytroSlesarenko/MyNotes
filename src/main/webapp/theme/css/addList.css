@@ -1,0 +1,22 @@
+.point {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pointView {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.uncheck {
+    width: 20px;
+    height: 20px;
+    padding: 0 5px 0 5px;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    padding: 0 5px 0 5px;
+}

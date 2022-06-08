@@ -15,5 +15,7 @@
         })
     }
 </script>
+<script src="<c:url value="/theme/js/ProductList.js"/>"></script>
+
 </body>
 </html>
