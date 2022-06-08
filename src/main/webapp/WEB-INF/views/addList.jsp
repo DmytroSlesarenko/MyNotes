@@ -14,7 +14,7 @@
 
                     <div id="addInput">
                         <input type="text" id="myInputs" placeholder="New point...">
-                        <button onclick="newElement()" class="submit__button addPoint">
+                        <button onclick="newElement()" class="submit__button addPoint" type="button">
                             <img src="<c:url value="/theme/img/plus.png"/>" alt="plus" onmouseover="this.src = '/theme/img/plus-click.png'" onmouseout="this.src = '/theme/img/plus.png'">
                         </button>
                     </div>

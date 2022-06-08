@@ -65,6 +65,7 @@
 }
 
 .notes__title {
+    display: flex;
     font-size: 14px;
     padding-left: 5px;
     padding-right: 10px;
@@ -74,8 +75,8 @@
 }
 
 .note__details img{
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     padding: 0;
 }
 

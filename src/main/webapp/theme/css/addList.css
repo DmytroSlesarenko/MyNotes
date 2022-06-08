@@ -1,6 +1,13 @@
 .point {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.point input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .pointView {
@@ -9,16 +16,26 @@
     align-items: center;
 }
 
+.pointView p {
+    padding-bottom: 0;
+}
+
 .uncheck {
-    width: 20px;
-    height: 20px;
-    padding: 0 5px 0 5px;
+    width: 25px;
+    height: 25px;
+    padding: 0 10px 0 0;
 }
 
 .check {
-    width: 20px;
-    height: 20px;
-    padding: 0 5px 0 5px;
+    width: 25px;
+    height: 25px;
+    padding: 0 10px 0 0;
+}
+
+.close {
+    width: 25px;
+    height: 25px;
+    padding: 0 0 0 10px;
 }
 
 #addInput {
@@ -38,5 +55,7 @@
 }
 
 .addPoint img{
+    width: 25px;
+    height: 25px;
     padding: 0 5px 0 5px;
 }

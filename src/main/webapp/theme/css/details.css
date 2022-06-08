@@ -44,8 +44,12 @@
     text-shadow: 1px 1px 0 #666666;
 }
 
+.title__body p {
+    padding-bottom: 0;
+}
+
 .description {
-    padding: 10px 10px 0 10px;
+    padding: 10px;
     display: block;
     min-height: 50px;
 }
@@ -74,8 +78,15 @@ button {
 }
 
 .buttons {
-    height: 40px;
+    height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    margin: 0 0 9px 0;
+}
+
+p {
+    margin: 5px 0 5px 0;
+    padding-bottom: 10px;
 }
