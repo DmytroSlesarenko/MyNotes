@@ -7,6 +7,7 @@ import pl.mynotes.models.Folder;
 import pl.mynotes.models.Note;
 import pl.mynotes.repositories.FolderRepository;
 import pl.mynotes.repositories.NoteRepository;
+import pl.mynotes.repositories.UserRepository;
 
 import java.util.List;
 
@@ -15,10 +16,12 @@ public class NoteController {
 
     private final NoteRepository noteRepository;
     private final FolderRepository folderRepository;
+    private final UserRepository userRepository;
 
-    public NoteController(NoteRepository noteRepository, FolderRepository folderRepository) {
+    public NoteController(NoteRepository noteRepository, FolderRepository folderRepository, UserRepository userRepository) {
         this.noteRepository = noteRepository;
         this.folderRepository = folderRepository;
+        this.userRepository = userRepository;
     }
 
     @RequestMapping("/notes")

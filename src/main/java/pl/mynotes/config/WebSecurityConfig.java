@@ -1,21 +1,38 @@
 package pl.mynotes.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import pl.mynotes.models.UserDetailsServiceImpl;
 
+@Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder encoder() {
-        return NoOpPasswordEncoder.getInstance();
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsServiceImpl();
     }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -23,24 +40,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/").permitAll()
                     .antMatchers("/registration").permitAll()
-                    .anyRequest().authenticated()
+                    .antMatchers("/notes/**").authenticated()
                     .and()
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/notes")
-                    .permitAll()
                     .and()
                 .logout()
-                    .logoutUrl("/logout")
-                    .deleteCookies("JSESSIONID")
                     .permitAll();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("123")
-                .roles("ADMIN");
+        auth.authenticationProvider(authenticationProvider());
     }
 }

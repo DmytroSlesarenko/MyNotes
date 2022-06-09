@@ -18,6 +18,11 @@ body {
     margin-bottom: 10px;
 }
 
+.logout img {
+    padding: 5px 9px 5px 0;
+
+}
+
 img {
     width: 30px;
     height: 30px;

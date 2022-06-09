@@ -1,0 +1,80 @@
+.hidden {
+    display: none;
+}
+
+html,body {
+    height:100%;
+    width:100%;
+    margin:0;
+}
+
+body {
+    display: flex;
+    background-color: #3498db;
+}
+
+.registration__container {
+    margin: auto;
+}
+
+.registration__body form {
+    display: flex;
+    background-color: white;
+    width: 500px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.buttons__registration {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    flex-grow: 1;
+}
+
+.buttons__registration a {
+    display: flex;
+    padding: 5px;
+    font-size: 14px;
+    background-color: #3498db;
+    text-decoration: none;
+    color: white;
+    box-shadow: 1px 1px #666666;
+    align-items: center;
+}
+
+.buttons__registration a:hover {
+    background-color: #3466db;
+}
+
+.buttons__registration a:active {
+    box-shadow: none;
+}
+
+input {
+    width: 240px;
+    padding: 5px;
+    font-size: 16px;
+    height: 35px;
+    margin: 10px 0 10px 0;
+}
+
+.buttons__registration input {
+    width: auto;
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    color: white;
+    background-color: #3498db;
+    box-shadow: 1px 1px #666666;
+}
+
+.buttons__registration input:hover {
+    background-color: #3466db;
+}
+
+.buttons__registration input:active {
+    box-shadow: none;
+}

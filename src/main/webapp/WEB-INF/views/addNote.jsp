@@ -7,10 +7,10 @@
         <div class="container__note">
             <div class="add__note__body">
                 <form:form method="post" action="/notes/add?type=note" modelAttribute="note">
-                    <form:input path="title" placeholder="Title..."/>
-                    <form:textarea path="description" id="note__description" placeholder="Text..."/>
+                    <form:input path="title" placeholder="Title"/>
+                    <form:textarea path="description" id="note__description" placeholder="Text"/>
                     <form:select path="folder">
-                        <form:option value="" label="Select folder..."/>
+                        <form:option value="" label="Select folder"/>
                         <form:options items="${folders}" itemLabel="name"/>
                     </form:select>
                     <div class="buttons">

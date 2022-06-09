@@ -7,7 +7,7 @@
             <div class="container__folder">
                 <div class="add__note__body">
                     <form:form method="post" action="/folder/add" modelAttribute="folder">
-                        <form:input path="name" placeholder="Name..."/>
+                        <form:input path="name" placeholder="Name"/>
                         <div class="buttons">
                             <a href="/notes">
                                 <img src="<c:url value="/theme/img/cancel.png"/>" alt="submit" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">

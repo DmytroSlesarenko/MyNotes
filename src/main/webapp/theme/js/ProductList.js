@@ -1,6 +1,14 @@
 const closeInput = document.getElementsByClassName("close");
 const checkItem = document.querySelectorAll(".uncheck");
 
+for (let i = 0; i < closeInput.length; i++) {
+    closeInput[i].onclick = function () {
+        const div = this.parentElement;
+        div.remove();
+    }
+}
+
+
 checkItem.forEach(function (item) {
     item.className = "uncheck";
     item.src = "/theme/img/uncheck.png";
