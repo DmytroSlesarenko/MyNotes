@@ -56,6 +56,6 @@
     </div>
 
     <div class="logout">
-        <a href="/logout"><img src="<c:url value="/theme/img/logout.png"/>" alt="logout"><span class="menu_text">Logout</span></a>
+        <a href="<c:url value="/logout"/>"><img src="<c:url value="/theme/img/logout.png"/>" alt="logout"><span class="menu_text">Logout</span></a>
     </div>
 </div>

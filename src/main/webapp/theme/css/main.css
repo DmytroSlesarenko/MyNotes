@@ -24,6 +24,10 @@ img {
     padding: 5px 0 5px 0;
 }
 
+.toolbar img {
+    padding: 5px 9px 5px 0;
+}
+
 .sidebar {
     padding: 5px 0 10px 0;
     height: 100%;

@@ -13,13 +13,13 @@
                     </div>
 
                     <div id="addInput">
-                        <input type="text" id="myInputs" placeholder="New point...">
+                        <input type="text" id="myInputs" placeholder="New item...">
                         <button onclick="newElement()" class="submit__button addPoint" type="button">
                             <img src="<c:url value="/theme/img/plus.png"/>" alt="plus" onmouseover="this.src = '/theme/img/plus-click.png'" onmouseout="this.src = '/theme/img/plus.png'">
                         </button>
                     </div>
                     <form:select path="folder">
-                        <form:option value="" label="Select folder"/>
+                        <form:option value="" label="Select folder..."/>
                         <form:options items="${folders}" itemLabel="name"/>
                     </form:select>
 
