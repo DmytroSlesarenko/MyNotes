@@ -2,6 +2,8 @@
 
 Web application to creating text notes or checklist. Users can create a personal account, where they can create notes and save for itself.
 
+At the beginning, please open file database.sql  by way (src/main/resources/database.sql) and create local database.
+
 Log in page.
 ![img.png](ReadmeImages/img.png)
 
