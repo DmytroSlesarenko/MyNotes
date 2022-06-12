@@ -23,7 +23,7 @@
             <input type="password" name="password" placeholder="Password">
             <div class="buttons__login">
                 <a href="/registration">
-                    Sing up
+                    Sign up
                 </a>
                 <input type="submit" value="Log in">
             </div>
