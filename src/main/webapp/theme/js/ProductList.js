@@ -1,5 +1,6 @@
 const closeInput = document.getElementsByClassName("close");
-const checkItem = document.querySelectorAll(".uncheck");
+const uncheckItem = document.querySelectorAll(".uncheck");
+const checkItem = document.querySelectorAll(".check");
 
 for (let i = 0; i < closeInput.length; i++) {
     closeInput[i].onclick = function () {
@@ -8,8 +9,13 @@ for (let i = 0; i < closeInput.length; i++) {
     }
 }
 
+uncheckItem.forEach(function (item) {
+    const hiddenInput = document.createElement("INPUT");
+    hiddenInput.name = "box";
+    hiddenInput.className = "checkValue";
+    hiddenInput.style.display = "none";
+    hiddenInput.value = "uncheck";
 
-checkItem.forEach(function (item) {
     item.className = "uncheck";
     item.src = "/theme/img/uncheck.png";
 
@@ -22,6 +28,7 @@ checkItem.forEach(function (item) {
     item.addEventListener("click", function () {
         if (item.className === "uncheck") {
             item.className = "check";
+            hiddenInput.value = "check";
             item.src = "/theme/img/check.png";
 
             item.addEventListener("mouseover",function () {
@@ -32,6 +39,7 @@ checkItem.forEach(function (item) {
             })
         } else {
             item.className = "uncheck";
+            hiddenInput.value = "uncheck";
             item.src = "/theme/img/uncheck.png";
 
             item.addEventListener("mouseover",function () {
@@ -39,6 +47,49 @@ checkItem.forEach(function (item) {
             })
             item.addEventListener("mouseout",function () {
                 this.src = "/theme/img/uncheck.png"
+            })
+        }
+    })
+})
+
+checkItem.forEach(function (item) {
+    const hiddenInput = document.createElement("INPUT");
+    hiddenInput.name = "box";
+    hiddenInput.className = "checkValue";
+    hiddenInput.style.display = "none";
+    hiddenInput.value = "check";
+
+    item.className = "check";
+    item.src = "/theme/img/check.png";
+
+    item.addEventListener("mouseover",function () {
+        this.src = "/theme/img/check-click.png"
+    })
+    item.addEventListener("mouseout",function () {
+        this.src = "/theme/img/check.png"
+    })
+    item.addEventListener("click", function () {
+        if (item.className === "check") {
+            item.className = "uncheck";
+            hiddenInput.value = "uncheck";
+            item.src = "/theme/img/uncheck.png";
+
+            item.addEventListener("mouseover",function () {
+                this.src = "/theme/img/uncheck-click.png"
+            })
+            item.addEventListener("mouseout",function () {
+                this.src = "/theme/img/uncheck.png"
+            })
+        } else {
+            item.className = "check";
+            hiddenInput.value = "check";
+            item.src = "/theme/img/check.png";
+
+            item.addEventListener("mouseover",function () {
+                this.src = "/theme/img/check-click.png"
+            })
+            item.addEventListener("mouseout",function () {
+                this.src = "/theme/img/check.png"
             })
         }
     })
@@ -54,8 +105,14 @@ function newElement() {
     input.value = text.data;
 
     const checkBox = document.createElement("IMG");
+    const hiddenInput = document.createElement("INPUT");
+    hiddenInput.name = "box";
+    hiddenInput.className = "checkValue";
+    hiddenInput.style.display = "none";
+    hiddenInput.value = "uncheck";
     checkBox.className = "uncheck";
     checkBox.src = "/theme/img/uncheck.png";
+
 
     checkBox.addEventListener("mouseover",function () {
         this.src = "/theme/img/uncheck-click.png"
@@ -67,6 +124,7 @@ function newElement() {
     checkBox.addEventListener("click", function () {
         if (checkBox.className === "uncheck") {
             checkBox.className = "check";
+            hiddenInput.value = "check";
             checkBox.src = "/theme/img/check.png";
 
             checkBox.addEventListener("mouseover",function () {
@@ -77,6 +135,7 @@ function newElement() {
             })
         } else {
             checkBox.className = "uncheck";
+            hiddenInput.value = "uncheck";
             checkBox.src = "/theme/img/uncheck.png";
 
             checkBox.addEventListener("mouseover",function () {
@@ -89,6 +148,7 @@ function newElement() {
     })
 
     box.appendChild(checkBox);
+    box.appendChild(hiddenInput);
 
     if (inputValue === '') {
         alert("Complete point!")

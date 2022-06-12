@@ -17,6 +17,9 @@
     <div class="registration__container">
         <div class="registration__body">
             <form:form action="/registration" method="post" modelAttribute="user">
+                <div class="error">
+                    Account already exist, please log in or entry new email!
+                </div>
                 <form:input path="username" placeholder="Username" />
                 <form:input path="email" placeholder="Email"/>
                 <form:input path="firstName" placeholder="First name"/>

@@ -7,7 +7,7 @@
         <div class="container__folder">
             <div class="add__note__body">
                 <form:form method="post" action="/folder/edit" modelAttribute="folder">
-                    <form:input cssClass="note__id" path="id"/>
+                    <form:input style="display: none;" cssClass="note__id" path="id"/>
                     <form:input path="name"/>
                     <div class="buttons">
                         <a href="/folder/${folder.id}">

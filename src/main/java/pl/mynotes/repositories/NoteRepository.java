@@ -18,4 +18,16 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     @Transactional
     @Query(value = "UPDATE notes SET folder_id = null WHERE folder_id = ?1", nativeQuery = true)
     void deleteFolderId(Long id);
+
+    @Query(value = "SELECT n.* FROM notes n JOIN users_notes ns ON n.id = ns.notes_id WHERE ns.user_id = ?1", nativeQuery = true)
+    List<Note> findAllByUserId(Long id);
+
+    @Query(value = "SELECT * FROM notes WHERE user_id = ?1", nativeQuery = true)
+    List<Note> findAllByUserIdNote(Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM notes WHERE user_id = ?1", nativeQuery = true)
+    void deleteNotesByUserId(Long id);
+
 }

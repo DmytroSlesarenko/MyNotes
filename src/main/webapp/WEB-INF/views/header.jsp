@@ -24,14 +24,13 @@
     <%--Boczne menu--%>
 
     <div class="toolbar">
-        <a href="/user/details"><img src="<c:url value="/theme/img/user.png"/>" alt="user">
-            <%--${user.firstName} ${user.lastName}--%>
-            <span class="menu_text">Dmytro Slesarenko</span>
+        <a href="/user/details/${user.id}"><img src="<c:url value="/theme/img/user.png"/>" alt="user">
+            <span class="menu_text">${user.firstName} ${user.lastName}</span>
         </a>
         <hr>
         <a href="/notes"><img src="<c:url value="/theme/img/notes.png"/>" alt="notes"><span class="menu_text">All notes</span></a>
         <hr>
-        <a href="/folder/all">
+        <a href="/folders">
             <img src="<c:url value="/theme/img/folder.png"/>" alt="folder">
             <span class="menu_text">All folders</span>
         </a>
@@ -51,8 +50,6 @@
         <a href="/folder/add"><img src="<c:url value="/theme/img/add-folder.png"/>" alt="folder">
             <span class="menu_text">New folder</span>
         </a>
-        <hr>
-        <a href="/friends/all"><img src="<c:url value="/theme/img/group.png"/>" alt="friends"><span class="menu_text">Group</span></a>
     </div>
 
     <div class="logout">

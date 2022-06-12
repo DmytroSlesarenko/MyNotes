@@ -7,6 +7,9 @@
             <div class="container__folder">
                 <div class="add__note__body">
                     <form:form method="post" action="/folder/add/${user.id}" modelAttribute="folder">
+                        <div class="error">
+                            Folder already exist!
+                        </div>
                         <form:input path="name" placeholder="Name"/>
                         <div class="buttons">
                             <a href="/notes">

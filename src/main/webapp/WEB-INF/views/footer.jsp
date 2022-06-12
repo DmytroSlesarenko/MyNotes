@@ -14,8 +14,10 @@
             item.style.width = "45px";
         })
     }
+
 </script>
 <script src="<c:url value="/theme/js/ProductList.js"/>"></script>
+<script src="<c:url value="/theme/js/SearchScript.js"/>"></script>
 
 </body>
 </html>

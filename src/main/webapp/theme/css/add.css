@@ -85,7 +85,6 @@ button {
 
 .container__folder {
     width: 575px;
-    height: 118px;
     background-color: white;
 }
 
@@ -93,4 +92,21 @@ button {
     height: 40px;
     display: flex;
     align-items: center;
+}
+
+#user {
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+#user input {
+    width: auto;
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    flex-grow: 0;
+    margin: 10px 5px 10px 5px;
+    color: #3498db;
 }

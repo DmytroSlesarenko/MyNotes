@@ -6,7 +6,7 @@
     <div class="add__note__container">
         <div class="container__note">
             <div class="add__note__body">
-                <form:form method="post" action="/notes/add?type=note" modelAttribute="note">
+                <form:form method="post" action="/notes/add/${user.id}?type=note" modelAttribute="note">
                     <form:input path="title" placeholder="Title"/>
                     <form:textarea path="description" id="note__description" placeholder="Text"/>
                     <form:select path="folder">

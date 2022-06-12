@@ -18,6 +18,9 @@
 <div class="login__container">
     <div class="login__body">
         <form:form action="/login" method="post">
+            <div class="error">
+                    ${error == 1 ? 'Entry password or bad password!' : 'User not found or bad username!'}
+            </div>
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
             <div class="buttons__login">

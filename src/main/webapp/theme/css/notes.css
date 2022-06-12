@@ -66,7 +66,7 @@
 
 .notes__title {
     display: flex;
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 5px;
     padding-right: 10px;
     color: white;
@@ -80,8 +80,9 @@
     padding: 0;
 }
 
-.note__details a{
-    display: flex;
+.note__details button{
+    height: auto;
+    width: auto;
 }
 
 .notes__content {
@@ -89,4 +90,21 @@
     font-size: 14px;
     overflow: scroll;
     max-height: 230px;
+}
+
+.content__box form {
+    width: auto;
+}
+
+.header__add__note {
+    display: flex;
+    align-items: center;
+}
+
+.header__add__note input {
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    height: 10px;
+    margin: 5px 10px 10px 0;
 }

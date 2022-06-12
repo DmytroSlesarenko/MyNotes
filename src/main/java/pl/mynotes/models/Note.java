@@ -1,6 +1,7 @@
 package pl.mynotes.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "notes")
@@ -17,19 +18,22 @@ public class Note {
 
     private String type;
 
+    @Column(length = 1000)
+    private String checkType;
+
     @ManyToOne
     @JoinColumn(name = "folder_id")
     private Folder folder;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
 
-    public Note(Long id, String title, String description, String type, Folder folder, User user) {
+    public Note(Long id, String title, String description, String type, String checkType, Folder folder, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.type = type;
+        this.checkType = checkType;
         this.folder = folder;
         this.user = user;
     }
@@ -67,6 +71,14 @@ public class Note {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCheckType() {
+        return checkType;
+    }
+
+    public void setCheckType(String checkType) {
+        this.checkType = checkType;
     }
 
     public Folder getFolder() {

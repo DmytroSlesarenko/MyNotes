@@ -6,7 +6,7 @@
     <div class="details__note__container">
         <div class="container__note__details">
             <div class="details__note__body">
-                <form:form action="/list/add?type=list" method="post" modelAttribute="note">
+                <form:form action="/list/add/${user.id}?type=list" method="post" modelAttribute="note">
                     <form:input path="title" placeholder="Title"/>
                     <div id="checklist">
 

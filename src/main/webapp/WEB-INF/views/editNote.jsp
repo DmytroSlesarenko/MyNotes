@@ -6,11 +6,12 @@
     <div class="add__note__container">
         <div class="container__note">
             <div class="add__note__body">
-                <form:form method="post" action="/notes/edit" modelAttribute="note">
-                    <form:input style="display: none" cssClass="note__id" path="id"/>
+                <form:form method="post" action="/notes/edit/${user.id}" modelAttribute="note">
+                    <form:input style="display: none" path="id"/>
                     <form:input path="title"/>
                     <form:textarea path="description" id="note__description"/>
-                    <form:input style="display: none" cssClass="note__type" path="type"/>
+                    <form:input style="display: none" path="type"/>
+                    <form:input style="display: none" path="checkType"/>
                     <form:select path="folder">
                         <form:option value="" label="Select folder"/>
                         <form:options items="${folders}" itemLabel="name"/>

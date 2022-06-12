@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
 .hidden {
     display: none;
 }
@@ -77,4 +79,12 @@ input {
 
 .buttons__registration input:active {
     box-shadow: none;
+}
+
+.error {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+    padding-bottom: 5px;
 }

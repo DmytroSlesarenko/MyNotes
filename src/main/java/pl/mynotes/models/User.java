@@ -29,15 +29,13 @@ public class User {
     @ManyToMany
     private List<Note> notes;
 
-    @ManyToMany
-    private List<Group> groupList;
-
-    public User(Long id, String firstName, String lastName, String email, String password) {
+    public User(Long id, String firstName, String lastName, String email, String password, List<Note> notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.notes = notes;
     }
 
     public User() {
@@ -105,6 +103,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 
     @Override

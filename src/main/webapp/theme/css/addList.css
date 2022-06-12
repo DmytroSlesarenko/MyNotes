@@ -1,6 +1,5 @@
 .point {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -11,9 +10,9 @@
 }
 
 .pointView {
-    height: 40px;
     display: flex;
     align-items: center;
+
 }
 
 .pointView p {
@@ -58,4 +57,34 @@
     width: 25px;
     height: 25px;
     padding: 0 5px 0 5px;
+}
+
+.checkValue {
+    display: none;
+}
+
+.list__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list__content p {
+    display: flex;
+    height: 25px;
+    align-items: center;
+}
+
+.list__content img {
+    margin: 5px 0 5px 0;
+}
+
+.point img {
+    width: 35px;
+    height: 35px;
+    margin: 10px 0 10px 0;
+}
+
+.list__content input {
+    flex-grow: 1;
 }

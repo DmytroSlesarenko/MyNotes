@@ -1,3 +1,4 @@
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@include file="header.jsp"%>
@@ -8,6 +9,7 @@
         <div class="header__main">
             <div class="header__title">All notes</div>
             <div class="header__add__note">
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search...">
                 <a href="/notes/add"><img src="<c:url value="/theme/img/note-white.png"/>" alt="add note" onmouseover="this.src = '/theme/img/note.png'" onmouseout="this.src = '/theme/img/note-white.png'"></a>
                 <a href="/list/add"><img src="<c:url value="/theme/img/list-white.png"/>" alt="add list" onmouseover="this.src = '/theme/img/list.png'" onmouseout="this.src = '/theme/img/list-white.png'"></a>
             </div>
@@ -29,7 +31,7 @@
                                 </div>
 
                                 <div class="notes__content">
-                                        ${note.description}
+                                    <span class="inside">${note.description}</span>
                                 </div>
 
                             </div>
@@ -46,12 +48,22 @@
                                 </div>
 
                                 <div class="notes__content">
-                                        <c:forEach items="${note.description.split('; ')}" var="item">
-                                            <div class="pointView">
-                                                <img class="uncheck">
-                                                <p>${item}</p>
-                                            </div>
-                                        </c:forEach>
+                                    <div class="pointView">
+                                        <div class="list__content">
+                                            <c:forEach items="${note.checkType.split('; ')}" var="check">
+
+                                                <img class="${check}"/>
+                                                <input type="text" class="checkValue" name="box" value="${check}">
+
+                                            </c:forEach>
+                                        </div>
+                                        <div class="list__content inside">
+                                            <c:forEach items="${note.description.split('; ')}" var="item">
+                                                <p class="inside">${item}</p>
+                                            </c:forEach>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </c:otherwise>

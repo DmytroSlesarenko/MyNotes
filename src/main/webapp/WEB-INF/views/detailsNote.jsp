@@ -23,24 +23,41 @@
                             <p>${note.title}</p>
                         </div>
                         <div class="description">
-                            <c:forEach items="${note.description.split('; ')}" var="item">
                             <div class="pointView">
-                                <img class="uncheck">
-                                <p>${item}</p>
+                                <div class="list__content">
+                                    <c:forEach items="${note.checkType.split('; ')}" var="check">
+
+                                        <img class="${check}"/>
+                                        <input type="text" class="checkValue" name="box" value="${check}">
+
+                                    </c:forEach>
+                                </div>
+                                <div class="list__content">
+                                    <c:forEach items="${note.description.split('; ')}" var="item">
+                                        <p>${item}</p>
+                                    </c:forEach>
+                                </div>
                             </div>
-                        </c:forEach>
+                        </div>
                     </c:otherwise>
                 </c:choose>
 
-
-            </div>
             <div class="buttons">
               <a href="/notes">
                 <img src="<c:url value="/theme/img/cancel.png"/>" alt="cancel" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">
               </a>
-              <a href="/notes/share/${note.id}">
-                <img src="<c:url value="/theme/img/share.png"/>" alt="share" onmouseover="this.src = '/theme/img/share-click.png'" onmouseout="this.src = '/theme/img/share.png'">
-              </a>
+                <c:choose>
+                    <c:when test="${note.type == 'note'}">
+                        <a href="/notes/sharing/${note.id}">
+                            <img src="<c:url value="/theme/img/share.png"/>" alt="share" onmouseover="this.src = '/theme/img/share-click.png'" onmouseout="this.src = '/theme/img/share.png'">
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="/list/sharing/${note.id}">
+                            <img src="<c:url value="/theme/img/share.png"/>" alt="share" onmouseover="this.src = '/theme/img/share-click.png'" onmouseout="this.src = '/theme/img/share.png'">
+                        </a>
+                    </c:otherwise>
+                </c:choose>
                 <c:choose>
                     <c:when test="${note.type == 'note'}">
                         <a href="/notes/edit/${note.id}">

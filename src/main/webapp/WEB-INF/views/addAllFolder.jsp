@@ -6,10 +6,18 @@
         <div class="add__note__container">
             <div class="container__folder">
                 <div class="add__note__body">
-                    <form:form method="post" action="/folder/add/${user.id}" modelAttribute="folder">
+                    <form:form method="post" action="/folder/all/add/${user.id}" modelAttribute="folder">
+<%--                        <div class="error">--%>
+<%--                            <c:if test="${error == 1}">--%>
+<%--                                Folder already exist!--%>
+<%--                            </c:if>--%>
+<%--                        </div>--%>
+                        <div class="error">
+                                ${error == 1 ? "Folder already exist!" : null}
+                        </div>
                         <form:input path="name" placeholder="Name"/>
                         <div class="buttons">
-                            <a href="/notes">
+                            <a href="/folders">
                                 <img src="<c:url value="/theme/img/cancel.png"/>" alt="submit" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">
                             </a>
                             <button type="submit" class="submit__button">
