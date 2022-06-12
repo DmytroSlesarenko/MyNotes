@@ -31,4 +31,6 @@ At the details page you can edit your note, send it to your friend if he has myN
 
 Creating folder very simple, you need only input name for your folder. All your folder you can check by click on All folder button at sidebar. At the sidebar will also be a scrolling area with folders.
 
+![img_8.png](img_8.png)
+
 That's all, enjoy myNotes, it's very simple to use. All basic knowledge you already read.
