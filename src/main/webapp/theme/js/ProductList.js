@@ -1,6 +1,7 @@
 const closeInput = document.getElementsByClassName("close");
 const uncheckItem = document.querySelectorAll(".uncheck");
 const checkItem = document.querySelectorAll(".check");
+const listBox = document.querySelector(".list__content");
 
 for (let i = 0; i < closeInput.length; i++) {
     closeInput[i].onclick = function () {
@@ -10,11 +11,6 @@ for (let i = 0; i < closeInput.length; i++) {
 }
 
 uncheckItem.forEach(function (item) {
-    const hiddenInput = document.createElement("INPUT");
-    hiddenInput.name = "box";
-    hiddenInput.className = "checkValue";
-    hiddenInput.style.display = "none";
-    hiddenInput.value = "uncheck";
 
     item.className = "uncheck";
     item.src = "/theme/img/uncheck.png";
@@ -28,7 +24,6 @@ uncheckItem.forEach(function (item) {
     item.addEventListener("click", function () {
         if (item.className === "uncheck") {
             item.className = "check";
-            hiddenInput.value = "check";
             item.src = "/theme/img/check.png";
 
             item.addEventListener("mouseover",function () {
@@ -39,7 +34,6 @@ uncheckItem.forEach(function (item) {
             })
         } else {
             item.className = "uncheck";
-            hiddenInput.value = "uncheck";
             item.src = "/theme/img/uncheck.png";
 
             item.addEventListener("mouseover",function () {

@@ -28,7 +28,6 @@
                                     <c:forEach items="${note.checkType.split('; ')}" var="check">
 
                                         <img class="${check}"/>
-                                        <input type="text" class="checkValue" name="box" value="${check}">
 
                                     </c:forEach>
                                 </div>

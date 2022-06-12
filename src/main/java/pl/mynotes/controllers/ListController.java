@@ -48,6 +48,12 @@ public class ListController {
 
     @PostMapping("/list/add/{userId}")
     public String saveList(@ModelAttribute("note") Note note, @RequestParam String type, HttpServletRequest request, @PathVariable Long userId) {
+        List<Note> notesError = noteRepository.findAllByUserId(userId);
+        for (Note element : notesError) {
+            if (element.getTitle().equals(note.getTitle())) {
+                return "addListError";
+            }
+        }
         note.setUser(userRepository.findById(userId).get());
         List<String> list = List.of(request.getParameterValues("lista"));
         String inputValue = list.stream().collect(Collectors.joining("; "));

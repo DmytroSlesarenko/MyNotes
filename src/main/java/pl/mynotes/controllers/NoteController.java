@@ -55,6 +55,12 @@ public class NoteController {
 
     @PostMapping("/notes/add/{userId}")
     public String saveNote(@ModelAttribute("note") Note note, @RequestParam String type, @PathVariable Long userId) {
+        List<Note> notesError = noteRepository.findAllByUserId(userId);
+        for (Note element : notesError) {
+            if (element.getTitle().equals(note.getTitle())) {
+                return "addNoteError";
+            }
+        }
         note.setUser(userRepository.findById(userId).get());
         note.setDescription(note.getDescription().replaceAll("\n", "<br>"));
         note.setType(type);

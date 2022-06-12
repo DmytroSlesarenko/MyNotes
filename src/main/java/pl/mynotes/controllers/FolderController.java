@@ -56,7 +56,6 @@ public class FolderController {
         List<Folder> folders = folderRepository.findAllByUserId(userId);
         for (Folder element : folders) {
             if (element.getName().equals(folder.getName())) {
-                model.addAttribute("error", 1);
                 return "addFolderError";
             }
         }
