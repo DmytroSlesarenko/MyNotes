@@ -16,6 +16,7 @@
 <body>
 
 <div class="login__container">
+    <h1 class="hello">MyNotes</h1>
     <div class="login__body">
         <form:form action="/login" method="post">
             <input type="text" name="username" placeholder="Username">
