@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="notes__content">
-                                    <span class="inside">${note.description}</span>
+                                    <p class="inside">${note.description}</p>
                                 </div>
 
                             </div>

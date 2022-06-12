@@ -90,6 +90,12 @@
     font-size: 14px;
     overflow: scroll;
     max-height: 230px;
+    white-space: initial;
+}
+
+.notes__content p {
+    max-width: 230px;
+    word-wrap: break-word;
 }
 
 .content__box form {
