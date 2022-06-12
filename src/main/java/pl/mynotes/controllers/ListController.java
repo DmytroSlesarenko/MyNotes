@@ -12,17 +12,18 @@ import pl.mynotes.repositories.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class NoteController {
+public class ListController {
 
     private final NoteRepository noteRepository;
     private final FolderRepository folderRepository;
     private final UserRepository userRepository;
 
-    public NoteController(NoteRepository noteRepository, FolderRepository folderRepository, UserRepository userRepository) {
+    public ListController(NoteRepository noteRepository, FolderRepository folderRepository, UserRepository userRepository) {
         this.noteRepository = noteRepository;
         this.folderRepository = folderRepository;
         this.userRepository = userRepository;
@@ -39,30 +40,27 @@ public class NoteController {
         return folderRepository.findAllByUserId(user.getId());
     }
 
-    @RequestMapping("/notes")
-    public String allFolder(Model model, Principal principal) {
-        User user = userRepository.getUserByUsername(principal.getName());
-        List<Note> notes = noteRepository.findAllByUserId(user.getId());
-        model.addAttribute("notes", notes);
-        return "main";
-    }
-
-    @GetMapping("/notes/add")
-    public String addNoteForm(Model model) {
+    @GetMapping("/list/add")
+    public String addListForm(Model model) {
         model.addAttribute("note", new Note());
-        return "addNote";
+        return "addList";
     }
 
-    @PostMapping("/notes/add/{userId}")
-    public String saveNote(@ModelAttribute("note") Note note, @RequestParam String type, @PathVariable Long userId) {
+    @PostMapping("/list/add/{userId}")
+    public String saveList(@ModelAttribute("note") Note note, @RequestParam String type, HttpServletRequest request, @PathVariable Long userId) {
         List<Note> notesError = noteRepository.findAllByUserId(userId);
         for (Note element : notesError) {
             if (element.getTitle().equals(note.getTitle())) {
-                return "addNoteError";
+                return "addListError";
             }
         }
         note.setUser(userRepository.findById(userId).get());
-        note.setDescription(note.getDescription().replaceAll("\n", "<br>"));
+        List<String> list = List.of(request.getParameterValues("lista"));
+        String inputValue = list.stream().collect(Collectors.joining("; "));
+        List<String> checkValue = List.of(request.getParameterValues("box"));
+        String checks = checkValue.stream().collect(Collectors.joining("; "));
+        note.setDescription(inputValue);
+        note.setCheckType(checks);
         note.setType(type);
         noteRepository.save(note);
         List<Note> notes = noteRepository.findAllByUserIdNote(userId);
@@ -74,47 +72,40 @@ public class NoteController {
         return "redirect:/notes";
     }
 
-    @GetMapping("/notes/details/{noteId}")
-    public String detailsNoteForm(Model model, @PathVariable Long noteId, HttpServletRequest request) {
-        model.addAttribute("note", noteRepository.findById(noteId).get());
-        return "detailsNote";
-    }
-
-    @GetMapping("/notes/edit/{noteId}")
-    public String editNoteForm(Model model, @PathVariable Long noteId) {
-        Note note = noteRepository.findById(noteId).get();
-        note.setDescription(note.getDescription().replaceAll("<br>", "\n"));
+    @GetMapping("/list/edit/{id}")
+    public String editListForm(Model model, @PathVariable Long id) {
+        Note note = noteRepository.findById(id).get();
         model.addAttribute("note", note);
-        return "editNote";
+        return "editList";
     }
 
-    @PostMapping("/notes/edit/{userId}")
-    public String editNote(Note editedNote, @PathVariable Long userId) {
+    @PostMapping("/list/edit/{userId}")
+    public String editList(Note editedNote, HttpServletRequest request, @PathVariable Long userId) {
         editedNote.setUser(userRepository.findById(userId).get());
-        editedNote.setDescription(editedNote.getDescription().replaceAll("\n", "<br>"));
+        List<String> list = List.of(request.getParameterValues("lista"));
+        String inputValue = list.stream().collect(Collectors.joining("; "));
+        List<String> checkValue = List.of(request.getParameterValues("box"));
+        String checks = checkValue.stream().collect(Collectors.joining("; "));
+        editedNote.setDescription(inputValue);
+        editedNote.setCheckType(checks);
         noteRepository.save(editedNote);
         return "redirect:/notes/details/" + editedNote.getId();
     }
 
-    @GetMapping("/notes/delete/{noteId}")
-    public String deleteNote(@PathVariable Long noteId) {
-        userRepository.shareNotesDelete(noteId);
-        noteRepository.deleteById(noteId);
-        return "redirect:/notes";
-    }
-
-    @GetMapping("/notes/sharing/{noteId}")
+    @GetMapping("/list/sharing/{noteId}")
     public String shareListForm(Model model, @PathVariable Long noteId) {
         Note note = noteRepository.findById(noteId).get();
         model.addAttribute("note", note);
-        return "shareNote";
+        return "shareList";
     }
 
-    @PostMapping("/notes/sharing/{noteId}")
+    @PostMapping("/list/sharing/{noteId}")
     public String shareList(@PathVariable Long noteId, HttpServletRequest request) {
         String email = request.getParameter("email");
         User user = userRepository.getUserByEmail(email);
         userRepository.shareNotes(user.getId(), noteId);
         return "redirect:/notes/details/" + noteId;
     }
+
+
 }

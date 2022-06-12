@@ -1,0 +1,90 @@
+.point {
+    display: flex;
+    align-items: center;
+}
+
+.point input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.pointView {
+    display: flex;
+    align-items: center;
+
+}
+
+.pointView p {
+    padding-bottom: 0;
+}
+
+.uncheck {
+    width: 25px;
+    height: 25px;
+    padding: 0 10px 0 0;
+}
+
+.check {
+    width: 25px;
+    height: 25px;
+    padding: 0 10px 0 0;
+}
+
+.close {
+    width: 25px;
+    height: 25px;
+    padding: 0 0 0 10px;
+}
+
+#addInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#myInputs {
+    flex-grow: 1;
+}
+
+.addPoint {
+    margin: 0 0 0 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.addPoint img{
+    width: 25px;
+    height: 25px;
+    padding: 0 5px 0 5px;
+}
+
+.checkValue {
+    display: none;
+}
+
+.list__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list__content p {
+    display: flex;
+    height: 25px;
+    align-items: center;
+}
+
+.list__content img {
+    margin: 5px 0 5px 0;
+}
+
+.point img {
+    width: 35px;
+    height: 35px;
+    margin: 10px 0 10px 0;
+}
+
+.list__content input {
+    flex-grow: 1;
+}

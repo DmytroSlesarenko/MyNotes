@@ -11,30 +11,31 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
-
-    private String lastName;
+    private String username;
 
     @Column(unique = true)
     private String email;
 
+    private String firstName;
+
+    private String lastName;
+
     private String password;
+
+    private String role;
+
+    private boolean enabled;
 
     @ManyToMany
     private List<Note> notes;
 
-    @ManyToMany
-    private List<ProductsList> productsLists;
-
-    @ManyToMany
-    private List<Friends> friendsList;
-
-    public User(Long id, String firstName, String lastName, String email, String password) {
+    public User(Long id, String firstName, String lastName, String email, String password, List<Note> notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.notes = notes;
     }
 
     public User() {
@@ -80,7 +81,37 @@ public class User {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
 
     @Override
     public String toString() {

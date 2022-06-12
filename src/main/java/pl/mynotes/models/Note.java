@@ -16,18 +16,26 @@ public class Note {
     @Column(length = 1000)
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    private String type;
+
+    @Column(length = 1000)
+    private String checkType;
+
+    @ManyToOne
     @JoinColumn(name = "folder_id")
     private Folder folder;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
 
-    public Note(Long id, String title, String description) {
+    public Note(Long id, String title, String description, String type, String checkType, Folder folder, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.type = type;
+        this.checkType = checkType;
+        this.folder = folder;
+        this.user = user;
     }
 
     public Note() {
@@ -55,6 +63,38 @@ public class Note {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCheckType() {
+        return checkType;
+    }
+
+    public void setCheckType(String checkType) {
+        this.checkType = checkType;
+    }
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
