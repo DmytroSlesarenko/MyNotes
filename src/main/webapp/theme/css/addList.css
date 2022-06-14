@@ -11,7 +11,7 @@
 
 .pointView {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
 }
 
@@ -65,8 +65,7 @@
 
 .list__content {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
 }
 
 .list__content p {
@@ -80,8 +79,8 @@
 }
 
 .point img {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     margin: 10px 0 10px 0;
 }
 

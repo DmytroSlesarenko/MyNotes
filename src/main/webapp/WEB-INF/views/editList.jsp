@@ -13,7 +13,6 @@
                         <c:forEach items="${note.description.split('; ')}" var="item">
                             <div class="point">
                                 <img class="uncheck"/>
-                                <input type="text" class="checkValue" name="box" value="uncheck">
                                 <input name="lista" type="text" value="${item}">
                                 <img class="close" src="<c:url value="/theme/img/cancel.png"/>" alt="cancel" onmouseover="this.src = '/theme/img/cancel-click.png'" onmouseout="this.src = '/theme/img/cancel.png'">
                             </div>

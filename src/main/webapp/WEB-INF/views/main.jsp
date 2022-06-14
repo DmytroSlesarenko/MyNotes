@@ -49,19 +49,12 @@
 
                                 <div class="notes__content">
                                     <div class="pointView">
-                                        <div class="list__content">
-                                            <c:forEach items="${note.checkType.split('; ')}" var="check">
-
-                                                <img class="${check}"/>
-
-                                            </c:forEach>
-                                        </div>
-                                        <div class="list__content inside">
-                                            <c:forEach items="${note.description.split('; ')}" var="item">
-                                                <p class="inside">${item}</p>
-                                            </c:forEach>
-                                        </div>
-
+                                        <c:forEach items="${note.description.split('; ')}" var="item">
+                                            <div class="list__content">
+                                                <img class="uncheck"/>
+                                                <p>${item}</p>
+                                            </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>

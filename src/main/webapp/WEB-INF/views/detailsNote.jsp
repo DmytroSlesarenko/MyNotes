@@ -24,18 +24,13 @@
                         </div>
                         <div class="description">
                             <div class="pointView">
-                                <div class="list__content">
-                                    <c:forEach items="${note.checkType.split('; ')}" var="check">
 
-                                        <img class="${check}"/>
-
-                                    </c:forEach>
-                                </div>
-                                <div class="list__content">
-                                    <c:forEach items="${note.description.split('; ')}" var="item">
+                                <c:forEach items="${note.description.split('; ')}" var="item">
+                                    <div class="list__content">
+                                        <img class="uncheck"/>
                                         <p>${item}</p>
-                                    </c:forEach>
-                                </div>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </c:otherwise>
