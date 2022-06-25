@@ -7,11 +7,6 @@
             <div class="container__folder">
                 <div class="add__note__body">
                     <form:form method="post" action="/folder/all/add/${user.id}" modelAttribute="folder">
-<%--                        <div class="error">--%>
-<%--                            <c:if test="${error == 1}">--%>
-<%--                                Folder already exist!--%>
-<%--                            </c:if>--%>
-<%--                        </div>--%>
                         <div class="error">
                                 ${error == 1 ? "Folder already exist!" : null}
                         </div>

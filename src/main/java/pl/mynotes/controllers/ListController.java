@@ -57,10 +57,7 @@ public class ListController {
         note.setUser(userRepository.findById(userId).get());
         List<String> list = List.of(request.getParameterValues("lista"));
         String inputValue = list.stream().collect(Collectors.joining("; "));
-//        List<String> checkValue = List.of(request.getParameterValues("box"));
-//        String checks = checkValue.stream().collect(Collectors.joining("; "));
         note.setDescription(inputValue);
-//        note.setCheckType(checks);
         note.setType(type);
         noteRepository.save(note);
         List<Note> notes = noteRepository.findAllByUserIdNote(userId);
@@ -84,10 +81,7 @@ public class ListController {
         editedNote.setUser(userRepository.findById(userId).get());
         List<String> list = List.of(request.getParameterValues("lista"));
         String inputValue = list.stream().collect(Collectors.joining("; "));
-//        List<String> checkValue = List.of(request.getParameterValues("box"));
-//        String checks = checkValue.stream().collect(Collectors.joining("; "));
         editedNote.setDescription(inputValue);
-//        editedNote.setCheckType(checks);
         noteRepository.save(editedNote);
         return "redirect:/notes/details/" + editedNote.getId();
     }
